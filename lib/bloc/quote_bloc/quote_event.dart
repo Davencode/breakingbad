@@ -1,5 +1,8 @@
-part of 'quote_bloc.dart';
+import 'package:equatable/equatable.dart';
 
 abstract class QuoteEvent extends Equatable {
-  const QuoteEvent();
+  @override
+  List<Object?> get props => [];
 }
+
+class QuoteLoadedEvent extends QuoteEvent {}

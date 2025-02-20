@@ -1,10 +1,29 @@
-part of 'quote_bloc.dart';
+import 'package:equatable/equatable.dart';
+import 'package:breakingbad/datamodel/quote_model.dart';
 
 abstract class QuoteState extends Equatable {
-  const QuoteState();
+  @override
+  List<Object?> get props => [];
 }
 
-class QuoteInitial extends QuoteState {
+class QuoteInitialState extends QuoteState {
   @override
   List<Object> get props => [];
+}
+
+class QuoteLoadingState extends QuoteState {}
+
+class QuoteLoadedState extends QuoteState {
+  final List<QuoteModel> quotes;
+
+  QuoteLoadedState(this.quotes);
+
+  @override
+  List<Object?> get props => [quotes];
+}
+
+class QuoteErrorState extends QuoteState {
+  final String message;
+
+  QuoteErrorState(this.message);
 }
